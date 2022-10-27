@@ -13,10 +13,22 @@ def power_numbers(*numbers):
     """
     return [number ** 2 for number in numbers]
 
+
 # filter types
 ODD = "odd"
 EVEN = "even"
 PRIME = "prime"
+
+
+# кусок кода от сюда https://foxford.ru/wiki/informatika/proverka-chisla-na-prostotu-v-python
+def filter_is_prime_num(in_num):
+    if in_num > 1:
+        if in_num % 2 == 0:
+            return in_num == 2
+        d = 3
+        while d * d <= in_num and in_num % d != 0:
+            d += 2
+        return d * d > in_num
 
 
 def filter_numbers(numbers_list, filter_type):
@@ -30,16 +42,6 @@ def filter_numbers(numbers_list, filter_type):
     >>> filter_numbers([2, 3, 4, 5], EVEN)
     <<< [2, 4]
     """
-    # кусок кода от сюда https://foxford.ru/wiki/informatika/proverka-chisla-na-prostotu-v-python
-    def filter_is_prime_num(in_num):
-        if in_num > 1:
-            if in_num % 2 == 0:
-                return in_num == 2
-            d = 3
-            while d * d <= in_num and in_num % d != 0:
-                d += 2
-            return d * d > in_num
-
     if filter_type == ODD:
         return [number for number in numbers_list if number % 2 != 0]
     if filter_type == EVEN:
