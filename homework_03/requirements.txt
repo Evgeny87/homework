@@ -59,7 +59,10 @@ tomlkit==0.11.6
 trove-classifiers==2022.12.1
 typing_extensions==4.4.0
 urllib3==1.26.12
+<<<<<<< HEAD
 uvicorn==0.20.0
+=======
+>>>>>>> origin/homework_03
 virtualenv==20.17.1
 webencodings==0.5.1
 websocket-client==1.4.1
