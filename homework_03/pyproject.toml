@@ -5,7 +5,6 @@ description = ""
 authors = ["evgeny <sun_nik_off@mail.ru>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "fast_api_user_app"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"

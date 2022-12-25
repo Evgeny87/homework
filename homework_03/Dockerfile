@@ -1,3 +1,6 @@
+# собрать билд докера командой docker build . -t var-app
+# запустить докер контейнер командой docker run var-app
+
 FROM python:3.10.8-bullseye
 
 ENV PYTHONUNBUFFERED=1
@@ -8,9 +11,10 @@ RUN pip install --upgrade pip && \
     pip install poetry==1.3.1
 
 RUN poetry config virtualenvs.create false --local
-COPY pyproject.toml poetry.lock ./
+COPY poetry.lock .
+COPY pyproject.toml .
 
-RUN poetry install --only main --no-interaction --no-dev --no-ansi
+RUN poetry install --only main --no-interaction --no-ansi
 
 COPY . .
 
