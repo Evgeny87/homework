@@ -4,12 +4,7 @@ from starlette import status
 from starlette.responses import JSONResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
-from api.items import router as items_router
-from api.users.views import router as users_router
-
 app = FastAPI()
-app.include_router(items_router)
-app.include_router(users_router)
 
 
 @app.get("/")
@@ -22,6 +17,11 @@ def hello(name: str = "OTUS"):
     return {
         "message": f"Hello {name}!",
     }
+
+
+@app.get("/ping", status_code=200)
+def ping_view():
+    return {"message": "pong"}
 
 
 # @app.get("{url_path:path}")
