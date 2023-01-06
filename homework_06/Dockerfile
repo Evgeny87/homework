@@ -8,4 +8,6 @@ RUN poetry config virtualenvs.create false --local
 COPY poetry.lock /app/poetry.lock
 COPY pyproject.toml /app/pyproject.toml
 
+RUN poetry install --only main --no-interaction --no-ansi
+
 COPY . /app

@@ -3,7 +3,7 @@ from os import getenv
 
 SQLALCHEMY_DATABASE_URI = getenv(
     "SQLALCHEMY_DATABASE_URI",
-    "postgresql://username:passwd!@localhost:5432/school",
+    "postgresql://username:passwd!@localhost:5432/project",
 )
 
 SECRET_KEY = getenv(
