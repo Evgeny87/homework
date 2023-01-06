@@ -1,9 +1,6 @@
 from os import getenv
-
 from flask import Flask, render_template, request, url_for, redirect, flash
-
 from models import db, Course
-
 from forms import CreateCourse
 
 app = Flask(__name__)
