@@ -12,6 +12,7 @@ services:
     depends_on:
       pg:
         condition: service_healthy
+
   pg:
     image: postgres
     environment:
@@ -24,7 +25,7 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data/pgdata
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -d project -U username" ]
+      test: [ "CMD-SHELL", "pg_isready" ]
       interval: 10s
       timeout: 5s
       retries: 5
