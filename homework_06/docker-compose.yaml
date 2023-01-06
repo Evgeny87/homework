@@ -6,7 +6,7 @@ services:
       dockerfile: ./Dockerfile
     environment:
       CONFIG: ProductionConfig
-      SQLALCHEMY_DATABASE_URI: postgresql://username:passwd!@pg:5432/school
+      SQLALCHEMY_DATABASE_URI: postgresql://username:passwd!@pg:5432/project
     ports:
       - "8000:80"
     depends_on:
@@ -15,7 +15,7 @@ services:
   pg:
     image: postgres
     environment:
-      POSTGRES_DB: school
+      POSTGRES_DB: project
       POSTGRES_USER: username
       POSTGRES_PASSWORD: passwd!
       PGDATA: /var/lib/postgresql/data/pgdata
@@ -24,7 +24,7 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data/pgdata
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -d school -U username" ]
+      test: [ "CMD-SHELL", "pg_isready -d project -U username" ]
       interval: 10s
       timeout: 5s
       retries: 5
