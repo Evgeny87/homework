@@ -25,8 +25,20 @@ SECRET_KEY = "django-insecure-pf9()gpr3-s@njsp*=)kojqk9u_s!#&-ga+2qx3w5n+*l78*51
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+if DEBUG:
+    import mimetypes
+    mimetypes.add_type("application/javascript", ".js", True)
 
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "0.0.0.0",
+]
+
+INTERNAL_IPS = [
+    "localhost",
+    "127.0.0.1",
+]
 
 # Application definition
 
