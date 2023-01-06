@@ -1,7 +1,10 @@
 FROM ./uwsgi-nginx-flask:python3.10
 
-COPY ./requirements.txt /app/requirements.txt
-RUN pip install --upgrade pip
-RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
+RUN pip install --upgrade pip && \
+    pip install poetry==1.3.1
+
+RUN poetry config virtualenvs.create false --local
+COPY poetry.lock .
+COPY pyproject.toml .
 
 COPY . /app
