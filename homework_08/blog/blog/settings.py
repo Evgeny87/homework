@@ -25,7 +25,20 @@ SECRET_KEY = "django-insecure-u#sb2z13=qu52x5pe)2i(qi#hjzr(ef1kbj157*u^t+u2gbl=n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+if DEBUG:
+    import mimetypes
+    mimetypes.add_type("application/javascript", ".js", True)
+
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "0.0.0.0",
+]
+
+INTERNAL_IPS = [
+    "localhost",
+    "127.0.0.1",
+]
 
 
 # Application definition
@@ -37,6 +50,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
+    'debug_toolbar',
+
+    'blog_django_app.apps.BlogDjangoAppConfig',
 ]
 
 MIDDLEWARE = [
