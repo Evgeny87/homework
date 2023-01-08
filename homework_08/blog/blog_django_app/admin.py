@@ -1,11 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
 from .models import User, Post
-
-
-class UserAdmin(admin.ModelAdmin):
-    list_display = ("id", "name", "email")
 
 
 class PostAdmin(admin.ModelAdmin):
@@ -16,5 +11,4 @@ class PostAdmin(admin.ModelAdmin):
         return queryset.select_related("user")
 
 
-admin.site.register(User, UserAdmin)
 admin.site.register(Post, PostAdmin)

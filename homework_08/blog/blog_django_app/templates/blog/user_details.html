@@ -6,17 +6,17 @@
 
 {% block body %}
   <h1>
-    User {{ user.name }}
+    User {{ user.username }}
   </h1>
 
   <div>
-    <strong>About {{ user.name }}</strong>:
+    <strong>About {{ user.username }}</strong>:
     <p>{{ user.about }}</p>
   </div>
 
   {% if user_posts %}
     <h2>
-      {{ user.name }}'s posts:
+      {{ user.username }}'s posts:
     </h2>
     <ul class="list-group">
       {% for post in user_posts %}
@@ -37,5 +37,6 @@
   <div>
     <a class="btn btn-dark" href="{% url 'blog_django_app:users' %}">All users.</a>
   </div>
+
 
 {% endblock %}
