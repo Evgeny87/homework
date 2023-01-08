@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class BlogDjangoAppConfig(AppConfig):
+class BlogAuthorizationConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'blog_django_app'
+    name = 'blog_authorization'
