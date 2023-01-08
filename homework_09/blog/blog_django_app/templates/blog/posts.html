@@ -7,14 +7,14 @@
 {% block body %}
   <h1>Posts: </h1>
 
-  {% if posts %}
+  {% if post_list %}
     <ul class="list-group">
-      {% for post in posts %}
+      {% for post in post_list %}
         <li class="list-group-item">
           <a class="text-decoration-none">
             <strong>
               <a href="{% url 'blog_django_app:post_details' pk=post.id %}">"{{ post.title }}"</a>
-            </strong>  by {{ post.user.name }}
+            </strong>  by {{ post.user.username }}
           </a>
         </li>
       {% endfor %}
