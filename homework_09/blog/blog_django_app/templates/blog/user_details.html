@@ -1,10 +1,10 @@
-{% extends 'blog/base.html' %}
+{% extends 'base.html' %}
 
 {% block title %}
   User #{{ user.id }}
 {% endblock %}
 
-{% block body %}
+{% block content %}
   <h1>
     User {{ user.username }}
   </h1>
@@ -33,10 +33,12 @@
     </div>
   {% endif %}
 
-  <br>
-  <div>
-    <a class="btn btn-dark" href="{% url 'blog_django_app:users' %}">All users.</a>
-  </div>
+  {% if request.user.pk != user.pk %}
+    <br>
+    <div>
+      <a class="btn btn-dark" href="{% url 'blog_django_app:users' %}">All users.</a>
+    </div>
+  {% endif %}
 
 
 {% endblock %}
